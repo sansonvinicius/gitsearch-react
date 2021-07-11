@@ -1,9 +1,12 @@
 
+import React, { useState} from 'react'
 
-
-function App() {
+function App(props) {
   return (
-    <input placeholder="Usuário"/>
+    <> 
+      <input name="usuario" id="usuaro" className="usuarioInput" placeholder="Usuário"/>
+      <button type="button" className="">Pesquisar</button>
+    </>
      
   );
 }
