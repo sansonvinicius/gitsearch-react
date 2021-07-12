@@ -1,11 +1,16 @@
 
-import React, { useState} from 'react'
+import React, { useState} from 'react';
+import axios from 'axios';
 
 function App(props) {
+  const [usuario, setUsuario] = useState('');
+  function handlePesquisa(){
+    axios.get(`https://api.github.com/users/${usuario}/repos`).then(response => console.log(response.data));
+  }
   return (
     <> 
-      <input name="usuario" id="usuaro" className="usuarioInput" placeholder="Usuário"/>
-      <button type="button" className="">Pesquisar</button>
+      <input  className="usuarioInput" placeholder="Usuário" value={usuario} onChange={ e => setUsuario(e.target.value)}/>
+      <button type="button" onClick={handlePesquisa}>Pesquisar</button>
     </>
      
   );
